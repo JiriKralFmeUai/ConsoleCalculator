@@ -16,6 +16,7 @@ class Program
 
         Console.WriteLine("=== Educational Calculator (Console C#) ===");
         Console.WriteLine("Enter an expression (e.g., (8+4.3)*9.07 or abs(-5)):");
+        Console.WriteLine("Supports +, -, *, /, parentheses, and built-in functions abs() and sqrt().");
         Console.WriteLine("Press Enter on an empty line to exit.\n");
 
         var calculator = new CalculatorEngine();
@@ -108,10 +109,20 @@ public class CalculatorEngine
                 continue;
             }
 
-            // Number parsing (handles both dot and comma as decimal separator)
-            if (char.IsDigit(current) || current == '.' || current == ',')
+            // Number parsing (handles both dot and comma as decimal separator, as well as leading minus sign)
+            bool isLeadingMinus = current == '-' && 
+                (tokens.Count == 0 || tokens[^1] == "(" || IsOperator(tokens[^1])) &&
+                index + 1 < expression.Length && (char.IsDigit(expression[index + 1]) || expression[index + 1] == '.' || expression[index + 1] == ',');
+
+            if (char.IsDigit(current) || current == '.' || current == ',' || isLeadingMinus)
             {
                 var sb = new StringBuilder();
+                if (isLeadingMinus)
+                {
+                    sb.Append('-');
+                    index++;
+                }
+
                 while (index < expression.Length && (char.IsDigit(expression[index]) || expression[index] == '.' || expression[index] == ','))
                 {
                     // Standardize decimal separator to dot for invariant parsing
