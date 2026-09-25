@@ -1,0 +1,5 @@
+# Auto-detect text files and normalize line endings
+* text=auto eol=lf
+
+# Visual Studio solution files require CRLF
+*.sln text eol=crlf

@@ -24,17 +24,26 @@ jobs:
 
     # 3. Restore NuGet packages and dependencies
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ConsoleCalculator.sln
 
     # 4. Build the project in Release configuration
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ConsoleCalculator.sln --configuration Release --no-restore
 
     # 5. Run unit tests
     - name: Run Unit Tests
-      run: dotnet test --configuration Release --no-build --verbosity normal
+      run: dotnet test ConsoleCalculator.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
-    # 6. Run the application with sample input
+    # 6. Run the application with sample input (smoke test)
     - name: Run Application (Smoke Test)
       run: |
         echo "(8+4.3)*9.07" | dotnet run --project ConsoleCalculator.csproj --no-build --configuration Release
+
+    # 7. Upload test results artifact (uploaded even if tests fail)
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: '**/TestResults/*.trx'
+        if-no-files-found: ignore
