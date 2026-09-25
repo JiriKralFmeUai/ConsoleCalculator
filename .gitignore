@@ -1,0 +1,96 @@
+# ==========================================
+# .NET / C# Build Outputs & Artifacts
+# ==========================================
+[Bb]in/
+[Oo]bj/
+[Aa]pp_data/
+[Aa]rtifacts/
+[Pp]ublish/
+[Ll]og/
+[Ll]ogs/
+
+# MSBuild / Roslyn generated files
+*.lock.json
+project.lock.json
+project.assets.json
+
+# ==========================================
+# IDEs and Editors
+# ==========================================
+
+# Visual Studio
+.vs/
+*.user
+*.userosv
+*.suo
+*.userprefs
+*.sln.docstates
+*.opensdf
+*.sdf
+*.vsp
+*.vspx
+
+# Visual Studio Code
+.vscode/
+# Uncomment below if you want to share specific VS Code configurations:
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# JetBrains Rider / Resharper
+.idea/
+*.DotSettings.user
+_ReSharper*/
+
+# Visual Studio for Mac / MonoDevelop
+*.pidb
+*.versioncontrol
+*.meta
+
+# ==========================================
+# Test Results & Code Coverage
+# ==========================================
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+# ==========================================
+# Dependency / Package Caches
+# ==========================================
+packages/
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+
+# ==========================================
+# Environment Variables & Local Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+*.local.json
+
+# ==========================================
+# Operating System Files
+# ==========================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.fuse_hidden*
+.directory
