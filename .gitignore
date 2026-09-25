@@ -94,3 +94,12 @@ $RECYCLE.BIN/
 *~
 .fuse_hidden*
 .directory
+
+# ==========================================
+# Crash Dumps & Profiling
+# ==========================================
+*.dmp
+*.mdmp
+*.crashdump
+BenchmarkDotNet.Artifacts/
+
