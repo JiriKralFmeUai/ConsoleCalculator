@@ -72,6 +72,12 @@ public class CalculatorEngineTests
     [InlineData("abs(-5)", 5.0)]
     [InlineData("sqrt(16)", 4.0)]
     [InlineData("abs(-12.5) + sqrt(16)", 16.5)]
+    [InlineData("sin(0)", 0.0)]
+    [InlineData("sin(1.5707963267948966)", 1.0)]
+    [InlineData("sin(-1.5707963267948966)", -1.0)]
+    [InlineData("cos(0)", 1.0)]
+    [InlineData("cos(3.141592653589793)", -1.0)]
+    [InlineData("cos(1.5707963267948966)", 0.0)]
     public void Evaluate_BuiltInFunctions_ReturnsExpectedResult(string expression, double expected)
     {
         double actual = _calculator.Evaluate(expression);
