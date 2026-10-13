@@ -11,7 +11,9 @@ class Program
     {
         Console.WriteLine("=== Educational Calculator (Console C#) ===");
         Console.WriteLine("Enter an expression (e.g., (8+4.3)*9.07 or abs(-5)):");
-        Console.WriteLine("Supports +, -, *, /, parentheses, and built-in functions abs() and sqrt().");
+        Console.WriteLine("Supports +, -, *, /, parentheses,");
+        Console.WriteLine("built-in functions abs() and sqrt(),");
+        Console.WriteLine("and trigonometric functions sin() and cos().");
         Console.WriteLine("Press Enter on an empty line to exit.\n");
 
         var calculator = new CalculatorEngine();
@@ -64,9 +66,9 @@ public class CalculatorEngine
         RegisterFunction("abs", args => Math.Abs(args[0]));
         RegisterFunction("sqrt", args => Math.Sqrt(args[0]));
 
-        // --- ADD TRIGONOMETRY HERE IN THE NEXT LESSON ---
-        // RegisterFunction("sin", args => Math.Sin(args[0]));
-        // RegisterFunction("cos", args => Math.Cos(args[0]));
+        // Basic trigonometric functions 
+        RegisterFunction("sin", args => Math.Sin(args[0]));
+        RegisterFunction("cos", args => Math.Cos(args[0]));
     }
 
     /// <summary>
