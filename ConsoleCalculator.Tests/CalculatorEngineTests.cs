@@ -79,7 +79,7 @@ public class CalculatorEngineTests
     [InlineData("cos(3.141592653589793)", -1.0)]
     [InlineData("cos(1.5707963267948966)", 0.0)]
     [InlineData("tan(0)", 0.0)]
-    [InlineData("tan(0.5)", 0.463647609)]
+    [InlineData("tan(0.5)", 0.54630248999)]
     public void Evaluate_BuiltInFunctions_ReturnsExpectedResult(string expression, double expected)
     {
         double actual = _calculator.Evaluate(expression);
