@@ -69,6 +69,7 @@ public class CalculatorEngine
         // Basic trigonometric functions 
         RegisterFunction("sin", args => Math.Sin(args[0]));
         RegisterFunction("cos", args => Math.Cos(args[0]));
+        RegisterFunction("tan", args => Math.Atan(args[0])); // Added tangent function with a bug
     }
 
     /// <summary>
