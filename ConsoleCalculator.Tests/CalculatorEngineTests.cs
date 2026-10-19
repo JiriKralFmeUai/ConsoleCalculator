@@ -80,6 +80,11 @@ public class CalculatorEngineTests
     [InlineData("cos(1.5707963267948966)", 0.0)]
     [InlineData("tan(0)", 0.0)]
     [InlineData("tan(0.5)", 0.54630248999)]
+    [InlineData("log(100)", 2.0)]
+    [InlineData("log(0.01)", -2.0)]
+    [InlineData("ln(1)", 0.0)]
+    [InlineData("ln(2.718281828459045)", 1.0)]
+    [InlineData("log(100) + ln(1)", 2.0)]
     public void Evaluate_BuiltInFunctions_ReturnsExpectedResult(string expression, double expected)
     {
         double actual = _calculator.Evaluate(expression);

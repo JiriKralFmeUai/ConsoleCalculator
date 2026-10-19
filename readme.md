@@ -8,6 +8,7 @@ A clean, modular, and extensible C# command-line calculator built on .NET. This 
 
 - **In-Line Expression Parsing:** Evaluates full mathematical expressions entered in a single line (e.g., `(8 + 4.3) * 9.07`).
 - **Standard Math Operations:** Supports addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
+- **Built-in Math Functions:** Includes absolute value (`abs`), square root (`sqrt`), base-10 logarithm (`log`), natural logarithm (`ln`), and trigonometric functions (`sin`, `cos`, and `tan`).
 - **Parentheses Support:** Correctly handles nested parentheses and operator precedence.
 - **Decimal Separator Normalization:** Accepts both dot (`.`) and comma (`,`) as decimal points automatically.
 - **Extensible Architecture:** Easily register custom single-argument or multi-argument functions without modifying the core parsing algorithm.
@@ -58,6 +59,9 @@ The engine processes input expressions in three primary steps:
    > abs(-12.5) + sqrt(16)
    = 16.5
 
+   > log(100) + ln(1)
+   = 2
+
    > 
    ```
 
@@ -77,10 +81,9 @@ calculator.RegisterFunction("cos", args => Math.Cos(args[0] * Math.PI / 180.0));
 calculator.RegisterFunction("tan", args => Math.Tan(args[0] * Math.PI / 180.0));
 ```
 
-### 2. Adding Advanced Mathematical Functions
+### 2. Adding More Advanced Mathematical Functions
+
 ```csharp
-calculator.RegisterFunction("log", args => Math.Log10(args[0]));
-calculator.RegisterFunction("ln", args => Math.Log(args[0]));
 calculator.RegisterFunction("exp", args => Math.Exp(args[0]));
 ```
 
