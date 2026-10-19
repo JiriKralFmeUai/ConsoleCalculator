@@ -13,7 +13,7 @@ class Program
         Console.WriteLine("Enter an expression (e.g., (8+4.3)*9.07 or abs(-5)):");
         Console.WriteLine("Supports +, -, *, /, parentheses,");
         Console.WriteLine("built-in functions abs() and sqrt(),");
-        Console.WriteLine("and trigonometric functions sin() and cos().");
+        Console.WriteLine("log(), ln(), and trigonometric functions sin(), cos(), and tan().");
         Console.WriteLine("Press Enter on an empty line to exit.\n");
 
         var calculator = new CalculatorEngine();
@@ -65,6 +65,8 @@ public class CalculatorEngine
         // Basic single-argument functions
         RegisterFunction("abs", args => Math.Abs(args[0]));
         RegisterFunction("sqrt", args => Math.Sqrt(args[0]));
+        RegisterFunction("log", args => Math.Log10(args[0]));
+        RegisterFunction("ln", args => Math.Log(args[0]));
 
         // Basic trigonometric functions 
         RegisterFunction("sin", args => Math.Sin(args[0]));
